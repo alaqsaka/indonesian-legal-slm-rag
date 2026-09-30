@@ -1,0 +1,16 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+outputs/
+wandb/
+chroma_db/
+documents/
+*.safetensors
+*.bin
+*.pt
+*.pth
+

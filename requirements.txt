@@ -1,0 +1,38 @@
+# Requirements for both notebooks:
+# - fine-tuning-slm-kriteria-1.ipynb
+# - membangun-sistem-rag-kriteria-2.ipynb
+
+# Core / fine-tuning (kriteria 1)
+unsloth==2026.9.4
+unsloth_zoo
+transformers==4.56.2
+trl==0.22.2
+datasets==4.3.0
+bitsandbytes==0.50.2
+xformers==0.0.34
+peft==0.20.0
+accelerate==1.14.0
+sentencepiece
+protobuf
+hf_transfer
+huggingface-hub==0.36.0
+
+# RAG (kriteria 2)
+langchain==1.2.3
+langchain-community==0.4.1
+langchain-core==1.2.6
+langchain-text-splitters
+langchain-huggingface
+langchain-classic
+chromadb==1.4.1
+pymupdf
+rank-bm25
+gdown
+
+# General
+numpy
+pandas
+torch
+kagglehub
+wandb
+ipython
