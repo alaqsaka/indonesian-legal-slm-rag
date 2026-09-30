@@ -1,8 +1,6 @@
-# Requirements for both notebooks:
-# - fine-tuning-slm-kriteria-1.ipynb
-# - membangun-sistem-rag-kriteria-2.ipynb
+# Requirements for both notebooks in the notebooks/ directory.
 
-# Core / fine-tuning (kriteria 1)
+# Core / fine-tuning
 unsloth==2026.9.4
 unsloth_zoo
 transformers==4.56.2
@@ -17,7 +15,7 @@ protobuf
 hf_transfer
 huggingface-hub==0.36.0
 
-# RAG (kriteria 2)
+# RAG
 langchain==1.2.3
 langchain-community==0.4.1
 langchain-core==1.2.6

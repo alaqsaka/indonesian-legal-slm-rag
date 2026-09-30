@@ -1,6 +1,6 @@
 # 🧠 Indonesian Legal SLM + Hybrid RAG
 
-Proyek submission Dicoding (PGABL) yang mencakup dua kriteria sekaligus: **melakukan fine-tuning Small Language Model (SLM)** milik sendiri, lalu **membangun sistem Retrieval-Augmented Generation (RAG)** di atas model hasil fine-tuning tersebut untuk menjawab pertanyaan seputar peraturan hukum Indonesia.
+Proyek ini menggabungkan dua tahap: **melakukan fine-tuning Small Language Model (SLM)** untuk instruction-following berbahasa Indonesia, lalu **membangun sistem Retrieval-Augmented Generation (RAG)** di atas model tersebut untuk menjawab pertanyaan berdasarkan peraturan hukum Indonesia.
 
 Model hasil fine-tuning tersedia di
 [Hugging Face Hub](https://huggingface.co/alaqsaka/fine-tuning-slm-legal-chatbot-using-qwen).
@@ -14,8 +14,8 @@ hasil pipeline dapat ditinjau tanpa menjalankan ulang workload GPU.
 - [Ringkasan Proyek](#-ringkasan-proyek)
 - [Struktur Repositori](#-struktur-repositori)
 - [Persyaratan](#️-persyaratan)
-- [Kriteria 1 — Fine-Tuning SLM](#1️⃣-kriteria-1--fine-tuning-slm)
-- [Kriteria 2 — Sistem RAG](#2️⃣-kriteria-2--sistem-rag)
+- [Fine-Tuning SLM](#1️⃣-fine-tuning-slm)
+- [Sistem Hybrid RAG](#2️⃣-sistem-hybrid-rag)
 - [Arsitektur Pipeline RAG](#-arsitektur-pipeline-rag)
 - [Cara Menjalankan](#-cara-menjalankan)
 - [Hasil](#-hasil)
@@ -72,7 +72,7 @@ Daftar lengkap ada di `requirements.txt`:
 
 ---
 
-## 1️⃣ Kriteria 1 — Fine-Tuning SLM
+## 1️⃣ Fine-Tuning SLM
 
 Fine-tuning dilakukan pada **Qwen2.5-1.5B** menggunakan **QLoRA (Quantized LoRA)** agar dapat berjalan pada GPU dengan VRAM terbatas.
 
@@ -166,7 +166,7 @@ model.push_to_hub_merged(
 
 ---
 
-## 2️⃣ Kriteria 2 — Sistem RAG
+## 2️⃣ Sistem Hybrid RAG
 
 ### Korpus Dokumen
 
@@ -231,7 +231,7 @@ Hanya **3 dokumen teratas** yang lolos ke tahap generasi jawaban.
 
 ### Model Generator
 
-Menggunakan model hasil fine-tuning Kriteria 1:
+Menggunakan model hasil fine-tuning dari tahap sebelumnya:
 
 ```python
 model_name = "alaqsaka/fine-tuning-slm-legal-chatbot-using-qwen"
@@ -378,5 +378,3 @@ Contoh pertanyaan yang diuji: **"apakah kalau saya lembur akan dibayar lebih?"**
 **Al-Aqsa Krisnaya Abidin**
 - GitHub: [@alaqsaka](https://github.com/alaqsaka)
 - Hugging Face: [@alaqsaka](https://huggingface.co/alaqsaka)
-
-Dibuat untuk submission kelas Dicoding — Pengembangan Generative AI Berbasis LLM.
