@@ -1,4 +1,4 @@
-# 🧠 Indonesian Legal SLM + Hybrid RAG
+# Indonesian Legal SLM + Hybrid RAG
 
 Proyek ini menggabungkan dua tahap: **melakukan fine-tuning Small Language Model (SLM)** untuk instruction-following berbahasa Indonesia, lalu **membangun sistem Retrieval-Augmented Generation (RAG)** di atas model tersebut untuk menjawab pertanyaan berdasarkan peraturan hukum Indonesia.
 
@@ -9,13 +9,13 @@ hasil pipeline dapat ditinjau tanpa menjalankan ulang workload GPU.
 
 ---
 
-## 📑 Daftar Isi
+## Daftar Isi
 
 - [Ringkasan Proyek](#-ringkasan-proyek)
 - [Struktur Repositori](#-struktur-repositori)
-- [Persyaratan](#️-persyaratan)
-- [Fine-Tuning SLM](#1️⃣-fine-tuning-slm)
-- [Sistem Hybrid RAG](#2️⃣-sistem-hybrid-rag)
+- [Persyaratan](#persyaratan)
+- [Fine-Tuning SLM](#fine-tuning-slm)
+- [Sistem Hybrid RAG](#sistem-hybrid-rag)
 - [Arsitektur Pipeline RAG](#-arsitektur-pipeline-rag)
 - [Cara Menjalankan](#-cara-menjalankan)
 - [Hasil](#-hasil)
@@ -23,7 +23,7 @@ hasil pipeline dapat ditinjau tanpa menjalankan ulang workload GPU.
 
 ---
 
-## 🎯 Ringkasan Proyek
+## Ringkasan Proyek
 
 | Aspek | Keterangan |
 |---|---|
@@ -38,7 +38,7 @@ hasil pipeline dapat ditinjau tanpa menjalankan ulang workload GPU.
 
 ---
 
-## 📂 Struktur Repositori
+## Struktur Repositori
 
 ```
 indonesian-legal-slm-rag/
@@ -55,7 +55,7 @@ tanpa ekstensi, arsip ZIP, dan metadata sistem operasi sengaja tidak disertakan.
 
 ---
 
-## ⚙️ Persyaratan
+## Persyaratan
 
 ### Perangkat Keras
 - **GPU NVIDIA** dengan VRAM ≥ 12 GB disarankan (proyek ini dijalankan di Tesla T4 14,5 GB).
@@ -72,7 +72,7 @@ Daftar lengkap ada di `requirements.txt`:
 
 ---
 
-## 1️⃣ Fine-Tuning SLM
+## Fine-Tuning SLM
 
 Fine-tuning dilakukan pada **Qwen2.5-1.5B** menggunakan **QLoRA (Quantized LoRA)** agar dapat berjalan pada GPU dengan VRAM terbatas.
 
@@ -166,7 +166,7 @@ model.push_to_hub_merged(
 
 ---
 
-## 2️⃣ Sistem Hybrid RAG
+## Sistem Hybrid RAG
 
 ### Korpus Dokumen
 
@@ -261,7 +261,7 @@ Berikan jawaban secara singkat, jelas, dan cantumkan sumber dokumennya.
 
 ---
 
-## 🔄 Arsitektur Pipeline RAG
+## Arsitektur Pipeline RAG
 
 ```
                     Pertanyaan pengguna
@@ -305,7 +305,7 @@ rag_chain = (
 
 ---
 
-## 🚀 Cara Menjalankan
+## Cara Menjalankan
 
 ### 1. Clone repositori
 
@@ -340,12 +340,12 @@ RAG Hukum Indonesia - Interactive Mode (v6)
 Dokumen: UU No.6/2023, PP No.35/2021, PP No.51/2023, PP No.5/2021
 Ketik 'exit' atau 'quit' untuk keluar
 
-📝 Masukkan pertanyaan hukum: apakah kalau saya lembur akan dibayar lebih?
+Masukkan pertanyaan hukum: apakah kalau saya lembur akan dibayar lebih?
 ```
 
 ---
 
-## 📊 Hasil
+## Hasil
 
 Pipeline RAG berhasil dibangun dan dijalankan end-to-end: mulai dari pengunduhan 4 PDF (1.949 halaman), pemotongan teks parent-child, pembuatan vector store ChromaDB dengan embedding `bge-m3`, hybrid retrieval BM25 + vektor, reranking `bge-reranker-base`, hingga generasi jawaban oleh model hasil fine-tuning.
 
@@ -353,7 +353,7 @@ Contoh pertanyaan yang diuji: **"apakah kalau saya lembur akan dibayar lebih?"**
 
 ---
 
-## 🔒 Catatan Keamanan
+## Catatan Keamanan
 
 - **Jangan pernah menuliskan token Hugging Face secara langsung (hardcoded) di dalam notebook.** Gunakan secrets/environment variable:
   ```python
@@ -373,7 +373,7 @@ Contoh pertanyaan yang diuji: **"apakah kalau saya lembur akan dibayar lebih?"**
 
 ---
 
-## 👤 Penulis
+## Penulis
 
 **Al-Aqsa Krisnaya Abidin**
 - GitHub: [@alaqsaka](https://github.com/alaqsaka)
